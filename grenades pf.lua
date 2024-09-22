@@ -31,7 +31,6 @@ function on_update()
                 if edfghsfgh:get_name() == "Indicator" then
                     for _, piss in pairs(edfghsfgh:get_children()) do
                         fart = piss:get_name()
-                        print("Grenade Spawned " ..  fart)
                     end
                 end
             end
@@ -79,7 +78,7 @@ function on_draw()
             -- i dont even know anymore bro fuck this team check
             if ui.get(enemygrenades_esp) then
                 if game_team == "Phantoms" then
-                    if grenade.team == "Enemy" then
+                    if grenade.team == "Friendly" then
                         render.circle(screen_pos.x, screen_pos.y, sedrfghiku, clr_1[1], clr_1[2], clr_1[3], clr_1[4], 120) 
                     end
                 elseif game_team == "Ghosts" then
@@ -89,10 +88,10 @@ function on_draw()
                 end
             else
                 if game_team == "Phantoms" then
-                    if grenade.team == "Friendly" then
+                    if grenade.team == "Enemy" then
                         render.circle(screen_pos.x, screen_pos.y, sedrfghiku, clr[1], clr[2], clr[3], clr[4], 120) 
                     end
-                    if grenade.team == "Enemy" then
+                    if grenade.team == "Friendly" then
                         render.circle(screen_pos.x, screen_pos.y, sedrfghiku, clr_1[1], clr_1[2], clr_1[3], clr_1[4], 120) 
                     end
                 elseif game_team == "Ghosts" then
