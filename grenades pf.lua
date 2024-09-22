@@ -76,32 +76,16 @@ function on_draw()
             -- wait its not
             -- wait it is
             -- i dont even know anymore bro fuck this team check
-            if ui.get(enemygrenades_esp) then
-                if game_team == "Phantoms" then
-                    if grenade.team == "Friendly" then
-                        render.circle(screen_pos.x, screen_pos.y, sedrfghiku, clr_1[1], clr_1[2], clr_1[3], clr_1[4], 120) 
-                    end
-                elseif game_team == "Ghosts" then
-                    if grenade.team == "Friendly" then
-                        render.circle(screen_pos.x, screen_pos.y, sedrfghiku, clr_1[1], clr_1[2], clr_1[3], clr_1[4], 120) 
-                    end
+            if ui.get(enemygrenades_esp) then 
+                if grenade.team == "Friendly" then
+                    render.circle(screen_pos.x, screen_pos.y, sedrfghiku, clr_1[1], clr_1[2], clr_1[3], clr_1[4], 120) 
                 end
             else
-                if game_team == "Phantoms" then
-                    if grenade.team == "Enemy" then
-                        render.circle(screen_pos.x, screen_pos.y, sedrfghiku, clr[1], clr[2], clr[3], clr[4], 120) 
-                    end
-                    if grenade.team == "Friendly" then
-                        render.circle(screen_pos.x, screen_pos.y, sedrfghiku, clr_1[1], clr_1[2], clr_1[3], clr_1[4], 120) 
-                    end
-                elseif game_team == "Ghosts" then
-                    if grenade.team == "Enemy" then
-                        render.circle(screen_pos.x, screen_pos.y, sedrfghiku, clr[1], clr[2], clr[3], clr[4], 120) 
-                    end
-                    if grenade.team == "Friendly" then
-                        render.circle(screen_pos.x, screen_pos.y, sedrfghiku, clr_1[1], clr_1[2], clr_1[3], clr_1[4], 120) 
-                    end
-
+                if grenade.team == "Enemy" then
+                    render.circle(screen_pos.x, screen_pos.y, sedrfghiku, clr[1], clr[2], clr[3], clr[4], 120) 
+                end
+                if grenade.team == "Friendly" then
+                    render.circle(screen_pos.x, screen_pos.y, sedrfghiku, clr_1[1], clr_1[2], clr_1[3], clr_1[4], 120) 
                 end
             end
             
