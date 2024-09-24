@@ -64,18 +64,18 @@ function on_draw()
             local game_team = local_player:get_team();
             -- on larry hoover this shit ass and this could definitely be improved but im lazy
 
+            -- only show danger indicator if the grenade is enemy
             if (ui.get(danger_close_indicator)) then
                 local distance = local_position:dist_to(grenade.pos)
-                if distance < 20 then
-                    render.text(x / 2 - w1 / 2, y / 2 + 150, 255, 0, 0, 255, 0, true, "GRENADE IS DANGER CLOSE TO YOU")
-                    render.image(image, x / 2 - 17, y / 2 + 110, 35, 35, 255, 0, 0, 255)
+                if grenade.team == "Friendly" then
+                    if distance < 20 then
+                        render.text(x / 2 - w1 / 2, y / 2 + 150, 255, 0, 0, 255, 0, true, "GRENADE IS DANGER CLOSE TO YOU")
+                        render.image(image, x / 2 - 17, y / 2 + 110, 35, 35, 255, 0, 0, 255)
+                    end
                 end
             end
 
-            -- why the fuck is the logic reversed
-            -- wait its not
-            -- wait it is
-            -- i dont even know anymore bro fuck this team check
+            -- i fuCKING FIGURED IT OUT BRO FUCK PHANTOM FORCES DEVS WTF
             if ui.get(enemygrenades_esp) then 
                 if grenade.team == "Friendly" then
                     render.circle(screen_pos.x, screen_pos.y, sedrfghiku, clr_1[1], clr_1[2], clr_1[3], clr_1[4], 120) 
