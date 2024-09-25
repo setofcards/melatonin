@@ -1,5 +1,5 @@
 local image = file.read("esp.png")
-local image_texture = utility.load_png(image_content)
+local image_texture = utility.load_image(image_content)
 local color = ui.new_color_picker("Scripts", "Elements", "Custom Image Color", 255, 255, 255, 255) 
 
 
