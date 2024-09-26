@@ -1,5 +1,6 @@
 local grenades_esp = ui.new_checkbox("Scripts", "Elements", "Grenades ESP")
 local danger_close_indicator = ui.new_checkbox("Scripts", "Elements", "Danger Close Indicator")
+local grenades_color = ui.new_colorpicker("Scripts", "Elements", "Grenade Color", 255, 255, 255, 255, false)
 local image = utility.load_image(file.read("warning.png"))
 
 local game = game.get_data_model()
@@ -45,7 +46,9 @@ function on_paint()
 
     if ui.get(grenades_esp) then
         for _, grenade in pairs(g_grenades) do
+            if not grenade.pos then return end
             local screen_pos = vector(utility.world_to_screen(grenade.pos:unpack()))
+            local clr = ui.get(grenades_color)
             if screen_pos:is_zero() then return end
 
             if (ui.get(danger_close_indicator)) then
@@ -56,11 +59,11 @@ function on_paint()
                 end
             end
 
-            render.circle(screen_pos.x, screen_pos.y, 5, 255, 0, 0, 255, 120)
+            render.circle(screen_pos.x, screen_pos.y, 5, clr[1], clr[2], clr[3], clr[4], 120)
             if grenade.name == "Semtex" then
-                render.text(screen_pos.x - w / 2, screen_pos.y + 5, 255, 0, 0, 255, 0, false, grenade.name)
+                render.text(screen_pos.x - w / 2, screen_pos.y + 5, clr[1], clr[2], clr[3], clr[4], 0, false, grenade.name)
             else if grenade.name == "Frag" then
-                render.text(screen_pos.x -  w1 / 2, screen_pos.y + 5, 255, 0, 0, 255, 0, false, grenade.name)
+                render.text(screen_pos.x -  w1 / 2, screen_pos.y + 5, clr[1], clr[2], clr[3], clr[4], 0, false, grenade.name)
             end
 
         end
