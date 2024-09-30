@@ -5,7 +5,6 @@ local image = utility.load_image(file.read("warning.png"))
 
 local game = game.get_data_model()
 local workspace = game:find_first_child_of_class("Workspace")
-local ignore = workspace:find_first_child("Ignore")
 
 local g_grenades = {}
 
