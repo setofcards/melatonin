@@ -48,7 +48,7 @@ local function on_update()
             
             if witch_ingredients[label] then
                 local part_name = witch_ingredients[label]
-                if witch_ingredients[label] and ingreds:find_first_child(part_name) ~= nil then
+                if part_name and ingreds:find_first_child(part_name) ~= nil then
                     g_ingredients[#g_ingredients + 1] = {
                         pos = vector(ingreds:find_first_child(part_name):get_position()),
                     } 
